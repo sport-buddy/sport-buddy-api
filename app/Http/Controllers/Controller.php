@@ -10,4 +10,12 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    public function v1(): array
+    {
+        return [
+            'app' => config('app.name'),
+            'version' => 'v1',
+        ];
+    }
 }
