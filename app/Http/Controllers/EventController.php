@@ -24,6 +24,11 @@ class EventController extends Controller
         return $this->events->findAll();
     }
 
+    public function show(Event $event): Event
+    {
+        return $event;
+    }
+
     public function store(StoreEventRequest $request): Event
     {
         return $this->events->create($request->validated());

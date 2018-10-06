@@ -40,7 +40,8 @@ class Event extends Model
      * @var array
      */
     protected $dates = [
-        'start_at', 'end_at',
+        'start_at',
+        'end_at',
     ];
 
     public function category(): BelongsTo
