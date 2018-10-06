@@ -24,7 +24,8 @@
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.7.*",
         "laravel/tinker": "^1.0",
-        "tautvydasr/laisvalaikio-zonos": "1.0"
+        "tautvydasr/laisvalaikio-zonos": "1.0",
+        "ext-json": "*"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.5",
