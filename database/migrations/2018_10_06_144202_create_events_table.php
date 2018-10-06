@@ -11,7 +11,7 @@ class CreateEventsTable extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up(): void
     {
         Schema::create('events', function (Blueprint $table) {
             $table->increments('id');
@@ -19,7 +19,8 @@ class CreateEventsTable extends Migration
             $table->unsignedInteger('location_id');
             $table->string('name');
             $table->text('comment')->nullable();
-            $table->unsignedInteger('participants')->nullable();
+            $table->unsignedInteger('min_participants')->nullable();
+            $table->unsignedInteger('max_participants')->nullable();
             $table->timestamp('start_at');
             $table->timestamp('end_at');
             $table->timestamps();
@@ -31,7 +32,7 @@ class CreateEventsTable extends Migration
      *
      * @return void
      */
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('events');
     }

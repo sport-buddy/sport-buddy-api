@@ -11,7 +11,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $location_id
  * @property string $name
  * @property string $comment
- * @property int $participants
+ * @property int $min_participants
+ * @property int $max_participants
  * @property \Illuminate\Support\Carbon $start_at
  * @property \Illuminate\Support\Carbon $end_at
  *
@@ -24,7 +25,7 @@ class Event extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'comment', 'participants', 'start_at', 'end_at',
+        'name', 'comment', 'min_participants', 'max_participants', 'start_at', 'end_at',
     ];
 
     /**
