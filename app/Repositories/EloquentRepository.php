@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use Illuminate\Database\Eloquent\Builder as Query;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 
@@ -19,6 +20,11 @@ abstract class EloquentRepository
 
     public function findAll(): Collection
     {
-        return $this->model->query()->get();
+        return $this->query()->get();
+    }
+
+    protected function query(): Query
+    {
+        return $this->model->query();
     }
 }

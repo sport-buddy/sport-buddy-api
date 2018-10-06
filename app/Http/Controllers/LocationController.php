@@ -20,7 +20,7 @@ class LocationController extends Controller
 
     public function index(): Collection
     {
-        return $this->locations->findAll();
+        return $this->locations->findPublic();
     }
 
     public function show(Location $location): Location
