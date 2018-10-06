@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Carbon;
 
 /**
@@ -19,6 +20,7 @@ use Illuminate\Support\Carbon;
  *
  * @property Category $category
  * @property Location $location
+ * @property User[]|\Illuminate\Support\Collection $participants
  */
 class Event extends Model
 {
@@ -44,6 +46,14 @@ class Event extends Model
         'end_at',
     ];
 
+    /**
+     * @var array
+     */
+    protected $casts = [
+        'min_participants' => 'int',
+        'max_participants' => 'int',
+    ];
+
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
@@ -52,6 +62,21 @@ class Event extends Model
     public function location(): BelongsTo
     {
         return $this->belongsTo(Location::class);
+    }
+
+    public function participants(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'event_participants');
+    }
+
+    public function hasEmptySpaces(): bool
+    {
+        return $this->participants->count() < $this->max_participants;
+    }
+
+    public function isParticipating(User $user): bool
+    {
+        return $this->participants()->where('id', $user->id)->exists();
     }
 
     protected function setStartAtAttribute($value): void
