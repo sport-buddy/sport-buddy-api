@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Carbon;
 
 /**
  * @property int $id
@@ -25,7 +26,14 @@ class Event extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'comment', 'min_participants', 'max_participants', 'start_at', 'end_at',
+        'category_id',
+        'location_id',
+        'name',
+        'comment',
+        'min_participants',
+        'max_participants',
+        'start_at',
+        'end_at',
     ];
 
     /**
@@ -43,5 +51,15 @@ class Event extends Model
     public function location(): BelongsTo
     {
         return $this->belongsTo(Location::class);
+    }
+
+    protected function setStartAtAttribute($value): void
+    {
+        $this->attributes['start_at'] = $value ? Carbon::createFromFormat('Y-m-d H:i', $value) : null;
+    }
+
+    protected function setEndAtAttribute($value): void
+    {
+        $this->attributes['end_at'] = $value ? Carbon::createFromFormat('Y-m-d H:i', $value) : null;
     }
 }

@@ -23,6 +23,11 @@ abstract class EloquentRepository
         return $this->query()->get();
     }
 
+    public function create(array $fields): Model
+    {
+        return $this->query()->create($fields);
+    }
+
     protected function query(): Query
     {
         return $this->model->query();
