@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @property int $id
@@ -34,4 +35,9 @@ class Location extends Model
     protected $casts = [
         'properties' => 'collection',
     ];
+
+    public function events(): HasMany
+    {
+        return $this->hasMany(Event::class);
+    }
 }

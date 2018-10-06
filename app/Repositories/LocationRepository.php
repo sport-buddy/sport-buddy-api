@@ -15,6 +15,7 @@ class LocationRepository extends EloquentRepository
     public function findPublic(): Collection
     {
         return $this->query()
+            ->with('events')
             ->whereIn('type', [Location::TYPE_BASKETBALL, Location::TYPE_FITNESS])
             ->whereNotNull('lat')
             ->whereNotNull('long')
