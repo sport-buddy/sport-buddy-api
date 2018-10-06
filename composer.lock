@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2b293f3e9acac70b8feb7ee44119916b",
+    "content-hash": "5b1dedc12e3c4fb84c4bd87004e21493",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -2261,6 +2261,16 @@
                 "dump"
             ],
             "time": "2018-10-02T16:36:10+00:00"
+        },
+        {
+            "name": "tautvydasr/laisvalaikio-zonos",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tautvydasr/Laisvalaikio-zonos.git",
+                "reference": "master"
+            },
+            "type": "library"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
