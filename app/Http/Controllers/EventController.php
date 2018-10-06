@@ -32,7 +32,7 @@ class EventController extends Controller
 
     public function store(StoreEventRequest $request): Event
     {
-        return $this->events->create($request->validated());
+        return $this->events->create($request->validated())->load('participants');
     }
 
     public function participate(Event $event, User $user): Event
