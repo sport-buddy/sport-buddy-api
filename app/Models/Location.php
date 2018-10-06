@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property int $id
- * @property string type
- * @property string address
- * @property string district
+ * @property string $type
+ * @property string $address
+ * @property string $district
  * @property float $lat
  * @property float $long
  * @property \Illuminate\Support\Collection $properties
