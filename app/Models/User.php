@@ -5,6 +5,15 @@ namespace App\Models;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+/**
+ * @property int $id
+ * @property string $name
+ * @property string $email
+ * @property string $password
+ * @property array $interests
+ * @property \Illuminate\Support\Carbon $start_at
+ * @property \Illuminate\Support\Carbon $end_at
+ */
 class User extends Authenticatable
 {
     use Notifiable;
@@ -15,7 +24,14 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'interests'
+    ];
+
+    /**
+     * @var array
+     */
+    protected $casts = [
+        'interests' => 'array',
     ];
 
     /**

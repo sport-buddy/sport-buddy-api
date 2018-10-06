@@ -14,9 +14,19 @@ use Faker\Generator as Faker;
 */
 
 $factory->define(App\Models\User::class, function (Faker $faker) {
+    $interests = [
+        'Krepšinis',
+        'Futbolas',
+        'Stalo tenisas',
+        'Bėgimas',
+        'Gatvės gimnastika',
+        'Treniruotės lauke',
+    ];
+
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
+        'interests' => $faker->randomElements($interests, random_int(1, count($interests))),
         'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
         'remember_token' => str_random(10),
     ];
