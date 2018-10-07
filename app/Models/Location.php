@@ -36,8 +36,21 @@ class Location extends Model
         'properties' => 'collection',
     ];
 
+    protected $appends = [
+        'lng',
+    ];
+
+    protected $hidden = [
+        'long',
+    ];
+
     public function events(): HasMany
     {
         return $this->hasMany(Event::class);
+    }
+
+    protected function getLngAttribute()
+    {
+        return $this->long;
     }
 }
