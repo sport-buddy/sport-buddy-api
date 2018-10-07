@@ -25,6 +25,6 @@ class LocationController extends Controller
 
     public function show(Location $location): Location
     {
-        return $location->load('events');
+        return $location->load('events', 'events.participants');
     }
 }
